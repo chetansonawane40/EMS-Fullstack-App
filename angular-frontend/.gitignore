@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Angular build artifacts
+/dist/
+/out-tsc/
+/angular-frontend/.angular/
+
+# NPM log files
+npm-debug.log
+yarn-error.log
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment files
+src/environments/
+
+# Cache files
+.angular/cache/
+
+# Git LFS files (to ensure that large files are not committed)
+*.pack
+
+# Specific directory or file to ignore large file in cache
+angular-frontend/.angular/cache/
+

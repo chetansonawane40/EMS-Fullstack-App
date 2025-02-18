@@ -1,0 +1,178 @@
+/* 🌟 Modern Glassmorphism Employee Table */
+
+/* Background Gradient */
+body {
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centered Container */
+.container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Header Design */
+.header h2 {
+    font-size: 28px;
+    color: #ffffff; /* Ensures white text */
+    background: rgba(0, 0, 0, 0.5); /* Darker semi-transparent background */
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Glassmorphism Table Container */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+/* Elegant Table Styling */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8); /* Slightly more opaque */
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(0, 0, 0, 0.2); /* Added border to the table */
+}
+
+/* Table Headers */
+.employee-table thead {
+    background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
+    color: #222;
+    font-size: 18px;
+}
+
+.employee-table thead th {
+    padding: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid #ddd; /* Clear border for separation */
+}
+
+/* Table Body Rows */
+.employee-table tbody tr {
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Zebra Striping */
+.employee-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.7); /* Slightly more opaque */
+}
+
+/* Hover Effect */
+.employee-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+}
+
+/* Table Data Cells */
+.employee-table tbody td {
+    padding: 12px;
+    color: #222;
+    font-weight: bold;
+    border-top: 1px solid #ddd; /* Add border for clear structure */
+}
+
+/* 🔹 Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Button Styling */
+.btn {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Update Button */
+.update-btn {
+    background: linear-gradient(135deg, #2d98da, #3867d6);
+    color: #fff;
+}
+
+.update-btn:hover {
+    background: linear-gradient(135deg, #3867d6, #2d98da);
+    transform: scale(1.1);
+}
+
+/* Delete Button */
+.delete-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5253);
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #ee5253, #ff6b6b);
+    transform: scale(1.1);
+}
+
+/* View Button */
+.view-btn {
+    background: linear-gradient(135deg, #1dd1a1, #10ac84);
+    color: #fff;
+}
+
+.view-btn:hover {
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
+    transform: scale(1.1);
+}
+
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+    .employee-table {
+        width: 100%;
+    }
+
+    .employee-table thead {
+        display: none;
+    }
+
+    .employee-table tbody tr {
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .employee-table tbody td {
+        display: block;
+        text-align: right;
+        font-size: 14px;
+        padding: 8px;
+        position: relative;
+    }
+
+    .employee-table tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+        color: #222;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

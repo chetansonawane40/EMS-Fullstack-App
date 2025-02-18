@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- Header Section -->
+  <div class="header">
+    <h2>Employee List</h2>
+  </div>
+
+  <!-- Employee Table -->
+  <div class="table-container">
+    <table class="employee-table">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Id</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.emailId }}</td>
+        <td class="action-buttons">
+          <button (click)="updateEmployee(employee.id)" class="btn update-btn">Update</button>
+          <button (click)="deleteEmployee(employee.id)" class="btn delete-btn">Delete</button>
+          <button (click)="employeeDetails(employee.id)" class="btn view-btn">View</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
