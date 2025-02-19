@@ -6,11 +6,14 @@ pipeline {
                 git 'https://github.com/chetansonawane40/EMS-Fullstack-App.git'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'mvn clean package' // Example for Java project
-            }
+        sstage('Build') {
+    steps {
+        script {
+            def mvnHome = tool 'Maven 3' // Use the name you set in Jenkins
+            sh "${mvnHome}/bin/mvn clean package"
         }
+    }
+}
         stage('Test') {
             steps {
                 sh 'mvn test'
