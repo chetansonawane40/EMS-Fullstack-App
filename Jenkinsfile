@@ -7,7 +7,12 @@ pipeline {
     }
 
     stages {
-
+        stage('Check NodeJS Version') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
         stage('Check Recent Changes') {
             steps {
                 sh 'git log -1 --pretty=format:"%h - %an, %ar : %s"'
