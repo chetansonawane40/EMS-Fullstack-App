@@ -6,12 +6,13 @@ pipeline {
         nodejs 'NodeJS' // Install Node.js in Jenkins (Optional)
     }
 
-    stage('Check Recent Changes') {
-    steps {
-        sh 'git log -1 --pretty=format:"%h - %an, %ar : %s"'
-          }
-      }
     stages {
+
+        stage('Check Recent Changes') {
+            steps {
+                sh 'git log -1 --pretty=format:"%h - %an, %ar : %s"'
+              }
+        }
         stage('Checkout Code') {
             steps {
                 git 'https://github.com/chetansonawane40/EMS-Fullstack-App.git'
