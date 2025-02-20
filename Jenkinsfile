@@ -6,6 +6,11 @@ pipeline {
         nodejs 'NodeJS' // Install Node.js in Jenkins (Optional)
     }
 
+    stage('Check Recent Changes') {
+    steps {
+        sh 'git log -1 --pretty=format:"%h - %an, %ar : %s"'
+          }
+      }
     stages {
         stage('Checkout Code') {
             steps {
