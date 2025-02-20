@@ -1,28 +1,61 @@
 pipeline {
     agent any
+
+    tools {
+        maven 'Maven 3' // Use the configured Maven tool
+        nodejs 'NodeJS' // Install Node.js in Jenkins (Optional)
+    }
+
     stages {
         stage('Checkout Code') {
             steps {
                 git 'https://github.com/chetansonawane40/EMS-Fullstack-App.git'
             }
         }
-        stage('Build') {
-    steps {
-        script {
-            def mvnHome = tool 'Maven 3' // Use the name you set in Jenkins
-            sh "${mvnHome}/bin/mvn clean package"
+
+        stage('Build Angular Frontend') {
+            steps {
+                dir('frontend') {
+                    sh 'npm install'
+                    sh 'npm run build --prod'
+                }
+            }
+        }
+
+        stage('Build Spring Boot Backend') {
+            steps {
+                dir('backend') {
+                    script {
+                        def mvnHome = tool 'Maven 3'
+                        sh "${mvnHome}/bin/mvn clean package"
+                    }
+                }
+            }
+        }
+
+        stage('Deploy Backend') {
+            steps {
+                dir('backend') {
+                    sh 'java -jar target/*.jar &'
+                }
+            }
+        }
+
+        stage('Deploy Frontend') {
+            steps {
+                dir('frontend') {
+                    sh 'npx http-server dist/frontend -p 4200 &'
+                }
+            }
         }
     }
-}
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
+
+    post {
+        success {
+            echo "Build and Deployment Completed Successfully!"
         }
-        stage('Deploy') {
-            steps {
-                sh 'echo Deploying Application...'
-            }
+        failure {
+            echo "Build Failed!"
         }
     }
 }
